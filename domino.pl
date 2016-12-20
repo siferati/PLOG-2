@@ -315,4 +315,4 @@ domino:-
   /* --- PRINT --- */
 
   list_to_matrix(Solution, 11, Matrix),
-  printBoard(Matrix).
+  printBoard(Matrix, 0).
