@@ -12,6 +12,32 @@ even(N):-
 
 
 /**
+* Interface for get_char, when it ends with \n
+* @param Input Input
+*/
+getChar(Input):-
+  get_char(Input),      /* read input */
+  get_char(_).          /* ignore \n */
+
+/**
+* Interface for get_code, when it ends with \n
+* @param Input Input
+*/
+getCode(Input):-
+  get_code(Input),      /* read input */
+  get_code(_).          /* ignore \n */
+
+/**
+* Read int from temrinal
+* @param Input Int to read
+*/
+getInt(Input):-
+  get_code(Char),         /* read asci code */
+  get_code(_),
+  Input is Char - 48.     /* input = char - '0' */
+
+
+/**
 * Turn a list into a matrix
 *
 * @param List List to turn into matrix
@@ -68,6 +94,7 @@ toChar(1, ':', sq).
 toChar(9, ' ', _).
 toChar(7, 0, _).
 toChar(8, 1, _).
+toChar(10, ' ', _).
 toChar(X, X, _).
 
 
