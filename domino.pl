@@ -314,5 +314,8 @@ domino:-
 
   /* --- PRINT --- */
 
-  list_to_matrix(Solution, 11, Matrix),
+  boardWidth(Width),
+  /* nSquares + nEasternBorder + Ey0 */
+  LineLength is 2 * Width + 1,
+  list_to_matrix(Solution, LineLength, Matrix),
   printBoard(Matrix, 0).
