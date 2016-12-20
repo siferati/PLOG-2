@@ -1,7 +1,6 @@
-/* --- INCLUDES --- */
-
-:-use_module(library(clpfd)).
-
+/**
+* Utilities
+*/
 
 /**
 * Checks if number is even
@@ -39,6 +38,7 @@ getInt(Input):-
 
 /**
 * Turn a list into a matrix
+* (this was taken from Stack Overflow)
 *
 * @param List List to turn into matrix
 * @param Length Length of each line in the returned matrix
@@ -53,6 +53,11 @@ list_to_matrix(List, Length, [Row|Matrix]):-
   list_to_matrix_row(List, Length, Row, Tail),
   list_to_matrix(Tail, Length, Matrix).
 
+
+/**
+* Aux predicate to list_to_matrix
+*/
+
 /* stop condition */
 list_to_matrix_row(Tail, 0, [], Tail).
 
@@ -64,16 +69,23 @@ list_to_matrix_row([Item|List], Length, [Item|Row], Tail):-
 
 /**
 * Find Index of multiple ocurrences of ELem in List
+*
 * @param Elem Element to find
 * @param List List to search
 * @param Result Where the indexes are saved
 * @param Index starting index for counting
 */
+
+/* stop condition */
 findIndex(_, [], [], _):- !.
+
+/* main case - if elem was found */
 findIndex(Elem, [Elem|T], [Index|Result], Index):-
   NewIndex is Index + 1,
   findIndex(Elem, T, Result, NewIndex),
   !.
+
+/* main case - if elem was NOT found */
 findIndex(Elem, [_|T], Result, Index):-
   NewIndex is Index + 1,
   findIndex(Elem, T, Result, NewIndex),
@@ -85,12 +97,11 @@ findIndex(Elem, [_|T], Result, Index):-
 *
 * @param Number Number that is in the given square
 * @param Char Mapped char
-* @param Type Type of char (sb -> char for southern border, sq -> char for square)
+* @param Type Char type (sb -> char for southern border, sq -> char for square)
 */
 toChar(0, '-', sb).
 toChar(0, '|', sq).
-toChar(1, ':', sb).
-toChar(1, ':', sq).
+toChar(1, ':', _).
 toChar(9, ' ', _).
 toChar(7, 0, _).
 toChar(8, 1, _).

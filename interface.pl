@@ -1,5 +1,5 @@
 /**
-* This file implements the interface of our project
+* This file implements the project's interface
 */
 
 /* --- MENU --- */
@@ -13,6 +13,7 @@ menu(1):-
 menu(2):-
   board2Solver.
 
+/* if wrong input */
 menu(_):-
   write('Wrong input, please repeat!').
 
