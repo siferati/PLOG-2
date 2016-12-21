@@ -17,23 +17,23 @@
 */
 
 /* stop condition */
-neighbourshipConstraints([], _, _, _).
+neighbourshipConstraints([], _, _, _):- !.
 
 /* current line is finished, move to next line */
 neighbourshipConstraints([[]|T], Solution, Y-_X, LineLength):-
   NewY is Y + 1,
-  neighbourshipConstraints(T, Solution, NewY-1, LineLength).
+  neighbourshipConstraints(T, Solution, NewY-1, LineLength), !.
 
 /* if current square is null, then move on */
 neighbourshipConstraints([[n|T]|OT], Solution, Y-X, LineLength):-
   NewX is X + 1,
-  neighbourshipConstraints([T|OT], Solution, Y-NewX, LineLength).
+  neighbourshipConstraints([T|OT], Solution, Y-NewX, LineLength), !.
 
 /* main case - set constraint on current square and move to next square */
 neighbourshipConstraints([[_|T]|OT], Solution, Y-X, LineLength):-
   setNeighbourshipConstraints(Solution, Y-X, LineLength),
   NewX is X + 1,
-  neighbourshipConstraints([T|OT], Solution, Y-NewX, LineLength).
+  neighbourshipConstraints([T|OT], Solution, Y-NewX, LineLength), !.
 
 
 /**
@@ -78,7 +78,7 @@ setNeighbourshipConstraints(Solution, Y-X, LineLength):-
 */
 
 /* stop condition */
-placementConstraints([], _, _).
+placementConstraints([], _, _):- !.
 
 /* main case - find each domino's possible positions and set the constraint */
 placementConstraints([H1-H2|Dominos], Solution, LineLength):-
@@ -93,7 +93,8 @@ placementConstraints([H1-H2|Dominos], Solution, LineLength):-
   /* set the constraint for this domino */
   setPlacementConstraints(MatchesNoDups, Solution, LineLength),
   /* recursive call */
-  placementConstraints(Dominos, Solution, LineLength).
+  placementConstraints(Dominos, Solution, LineLength),
+  !.
 
 
 /**
