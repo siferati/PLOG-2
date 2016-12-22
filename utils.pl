@@ -77,102 +77,14 @@ list_to_matrix_row([Item|List], Length, [Item|Row], Tail):-
 */
 
 /* stop condition */
-findIndex(_, [], [], _):- !.
+findIndex(_, [], [], _).
 
 /* main case - if elem was found */
 findIndex(Elem, [Elem|T], [Index|Result], Index):-
   NewIndex is Index + 1,
-  findIndex(Elem, T, Result, NewIndex),
-  !.
+  findIndex(Elem, T, Result, NewIndex).
 
 /* main case - if elem was NOT found */
 findIndex(Elem, [_|T], Result, Index):-
   NewIndex is Index + 1,
-  findIndex(Elem, T, Result, NewIndex),
-  !.
-
-
-/**
-* Mapping of numbers in $Solution to char
-*
-* @param Number Number that is in the given square
-* @param Char Mapped char
-* @param Type Char type (sb -> char for southern border, sq -> char for square)
-*/
-toChar(0, '-', sb).
-toChar(0, '|', sq).
-toChar(1, ':', _).
-toChar(9, ' ', _).
-toChar(7, 0, _).
-toChar(8, 1, _).
-toChar(10, ' ', _).
-toChar(X, X, _).
-
-
-/**
-* Prints lines corresponding to Shouthern Borders (even index, if Y starts at 0)
-*
-* @param Line Line to print
-*/
-
-/* stop condition */
-printSouthBorder([]).
-
-/* main case */
-printSouthBorder([H|T]):-
-  toChar(H, C, sb),
-  write(C),
-  printSouthBorder(T).
-
-
-/**
-* Prints lines corresponding to Squares (odd index, if Y starts at 0)
-*
-* @param Line Line to print
-*/
-
-/* stop condition */
-printSquare([]).
-
-/* main case */
-printSquare([H|T]):-
-  toChar(H, C, sq),
-  write(C),
-  printSquare(T).
-
-
-/**
-* Prints given line
-*
-* @param Line Line to print
-* @param Y Index of line to print (start at 0)
-*/
-
-/* if even index */
-printLine(Line, Y):-
-  even(Y),
-  printSouthBorder(Line),
-  nl.
-
-/* if odd index */
-printLine(Line, Y):-
-  \+ even(Y),
-  printSquare(Line),
-  nl.
-
-
-/**
-* Prints the Board (matrix!)
-*
-* @param Board Board to print
-* @param Y Index of current line being iterated (starts at 0)
-*/
-
-/* stop condition */
-printBoard([], _).
-
-/* main case */
-printBoard([Line|T], Y):-
-  printLine(Line, Y),
-  NewY is Y + 1,
-  printBoard(T, NewY).
+  findIndex(Elem, T, Result, NewIndex).

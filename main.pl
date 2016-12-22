@@ -17,15 +17,18 @@
 
 :- use_module(library(clpfd)).
 :- use_module(library(lists)).
-:- ensure_loaded('board-solvers/board1Solver.pl').
-:- ensure_loaded('board-solvers/board2Solver.pl').
+:- ensure_loaded('boards/board1.pl').
+:- ensure_loaded('boards/board2.pl').
+:- ensure_loaded('board-translations.pl').
 :- ensure_loaded('constraints.pl').
 :- ensure_loaded('interface.pl').
+:- ensure_loaded('solution.pl').
+:- ensure_loaded('solver.pl').
 :- ensure_loaded('utils.pl').
 
 
 /* --- MAIN --- */
 
-domino:-
+main:-
   interface,
-  domino.
+  main.

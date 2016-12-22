@@ -8,10 +8,14 @@ menu(0):-
   halt.
 
 menu(1):-
-  board1Solver.
+  getBoard1Info(Board, BoardWidth, Dominos),
+  solver(Board, BoardWidth, Dominos, Solution),
+  printBoard(Solution, 0).
 
 menu(2):-
-  board2Solver.
+  getBoard2Info(Board, BoardWidth, Dominos),
+  solver(Board, BoardWidth, Dominos, Solution),
+  printBoard(Solution, 0).
 
 /* if wrong input */
 menu(_):-
