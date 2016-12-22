@@ -26,7 +26,14 @@ menu(_):-
 
 interface:-
   nl,
-  write('Press 1 to play board1, 2 to play board2, 0 to exit.'),
+  write('******* Domino puzzle: Main menu *******'),
+  nl, nl,
+  write('1 - solve first board'),
   nl,
+  write('2 - solve second board'),
+  nl,
+  write('0 - exit SICStus'),
+  nl, nl,
   getInt(I),
+  nl,
   menu(I).
