@@ -35,11 +35,16 @@ solver(Board, BoardWidth, Dominos, SolutionMatrix):-
   /* --- ! SETTING CONSTRAINTS --- */
 
   /* --- LABELING --- */
-  statistics(walltime, _),
+  /* for statistics
+
+  statistics(walltime, _), */
   labeling([ffc], Solution),
+  /* for statistics
+
   statistics(walltime, [_, ElapsedTime | _]),
   format('~nElapsed time: ~3d ~n', ElapsedTime),
   fd_statistics,
+  */
 
   /* --- RETURN SOLUTION AS A MATRIX --- */
   list_to_matrix(Solution, SolutionWidth, SolutionMatrix).
