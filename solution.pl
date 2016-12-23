@@ -17,6 +17,7 @@ solutionWidth(BoardWidth, SolutionWidth):-
 
 /**
 * Mapping of numbers in $Solution to char
+* Rules for 0 and 1 were changed for 11 and 12 respectively, given the existence of boards with d>6
 *
 * @param Number Number that is in the given square
 * @param Char Mapped char
@@ -26,8 +27,8 @@ toChar(0, '-', sb).
 toChar(0, '|', sq).
 toChar(1, ':', _).
 toChar(9, ' ', _).
-toChar(7, 0, _).
-toChar(8, 1, _).
+toChar(11, 0, _).
+toChar(12, 1, _).
 toChar(10, ' ', _).
 toChar(X, X, _).
 

@@ -10,12 +10,13 @@
 
 /**
 * Translation rules for translateBoard()
+* Rules for 0 and 1 were changed for 11 and 12 respectively, given the existence of boards with d>6
 *
 * @param ELem Element to replace
 * @param Output Replaced Element
 */
-translate(0, 7):- !.
-translate(1, 8):- !.
+translate(0, 11):- !.
+translate(1, 12):- !.
 translate(n, 10):- !.
 translate(X, X):- !.
 

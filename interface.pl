@@ -17,6 +17,17 @@ menu(2):-
   solver(Board, BoardWidth, Dominos, Solution),
   printBoard(Solution, 0).
 
+menu(3):-
+  getBoard3Info(Board, BoardWidth, Dominos),
+  solver(Board, BoardWidth, Dominos, Solution),
+  printBoard(Solution, 0).
+
+
+menu(4):-
+  getBoard4Info(Board, BoardWidth, Dominos),
+  solver(Board, BoardWidth, Dominos, Solution),
+  printBoard(Solution, 0).
+
 /* if wrong input */
 menu(_):-
   write('Wrong input, please repeat!').
@@ -31,6 +42,10 @@ interface:-
   write('1 - solve first board'),
   nl,
   write('2 - solve second board'),
+  nl,
+  write('3 - solve third board'),
+  nl,
+  write('4 - solve fourth board'),
   nl,
   write('0 - exit SICStus'),
   nl, nl,
