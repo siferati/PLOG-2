@@ -1,7 +1,7 @@
 /**
-* All information related to Board 2 is stated here
-* Predicates should have a 2 in the name,
-* to indicate they are Board 2 predicates
+* All information related to Board 4 is stated here
+* Predicates should have a 4 in the name,
+* to indicate they are Board 4 predicates
 */
 
 /* board d = 8 */

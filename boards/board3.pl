@@ -1,7 +1,7 @@
 /**
-* All information related to Board 2 is stated here
-* Predicates should have a 2 in the name,
-* to indicate they are Board 2 predicates
+* All information related to Board 3 is stated here
+* Predicates should have a 3 in the name,
+* to indicate they are Board 3 predicates
 */
 
 /* board d = 6 */
