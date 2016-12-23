@@ -19,6 +19,8 @@
 :- use_module(library(lists)).
 :- ensure_loaded('boards/board1.pl').
 :- ensure_loaded('boards/board2.pl').
+:- ensure_loaded('boards/board3.pl').
+:- ensure_loaded('boards/board4.pl').
 :- ensure_loaded('board-translations.pl').
 :- ensure_loaded('constraints.pl').
 :- ensure_loaded('interface.pl').
